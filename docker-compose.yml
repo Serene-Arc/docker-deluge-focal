@@ -1,0 +1,18 @@
+---
+version: "2.1"
+services:
+  deluge:
+    image: mydeluge
+    container_name: deluge
+    network_mode: host
+    user: '1000:1000'
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Brisbane
+      - UMASK_SET=022 #optional
+      - DELUGE_LOGLEVEL=error #optional
+    volumes:
+      - /home/serene/.config/deluge/:/config
+      - /smaug_data/torrents/:/downloads
+    restart: unless-stopped
