@@ -3,6 +3,7 @@ FROM ubuntu:focal
 # environment variables
 ARG DEBIAN_FRONTEND="noninteractive"
 ENV PYTHON_EGG_CACHE="/config/plugins/.python-eggs"
+ENV UMASK=022
 
 # install packages
 RUN apt-get update && \
